@@ -1,0 +1,232 @@
+/* ----------------------------------------------------
+   Customer Menu Theme System (CSS variable based)
+   Themes: dark (default), light, cafe
+   Applied via [data-menu-theme] attribute on the menu root.
+   ---------------------------------------------------- */
+
+[data-menu-theme='dark'] {
+  --menu-page-bg: #f8f9fa;
+  --menu-card-bg: #ffffff;
+  --menu-card-border: #e2e8f0;
+  --menu-text-primary: #0f172a;
+  --menu-text-secondary: #475569;
+  --menu-text-muted: #94a3b8;
+  --menu-accent: #f97316;
+  --menu-accent-hover: #ea580c;
+  --menu-accent-soft: #fff7ed;
+  --menu-accent-border: #fed7aa;
+  --menu-input-bg: #ffffff;
+  --menu-input-border: #e2e8f0;
+  --menu-sticky-bg: rgba(248, 249, 250, 0.95);
+}
+
+[data-menu-theme='light'] {
+  --menu-page-bg: #eef2f7;
+  --menu-card-bg: #ffffff;
+  --menu-card-border: #cbd5e1;
+  --menu-text-primary: #0f172a;
+  --menu-text-secondary: #475569;
+  --menu-text-muted: #64748b;
+  --menu-accent: #0284c7;
+  --menu-accent-hover: #0369a1;
+  --menu-accent-soft: #f0f9ff;
+  --menu-accent-border: #bae6fd;
+  --menu-input-bg: #ffffff;
+  --menu-input-border: #cbd5e1;
+  --menu-sticky-bg: rgba(238, 242, 247, 0.95);
+}
+
+[data-menu-theme='cafe'] {
+  --menu-page-bg: #f6ecdc;
+  --menu-card-bg: #fffaf0;
+  --menu-card-border: #e6d3b8;
+  --menu-text-primary: #3b2a1e;
+  --menu-text-secondary: #6d5744;
+  --menu-text-muted: #a58a70;
+  --menu-accent: #b45309;
+  --menu-accent-hover: #92400e;
+  --menu-accent-soft: #fdf0db;
+  --menu-accent-border: #e8c58c;
+  --menu-input-bg: #fffdf7;
+  --menu-input-border: #e0cdac;
+  --menu-sticky-bg: rgba(246, 236, 220, 0.95);
+}
+
+/* Structural themed surfaces */
+[data-menu-theme] .menu-page {
+  background-color: var(--menu-page-bg);
+  color: var(--menu-text-primary);
+}
+
+[data-menu-theme] .menu-card {
+  background-color: var(--menu-card-bg);
+  border-color: var(--menu-card-border);
+  color: var(--menu-text-primary);
+}
+
+[data-menu-theme] .menu-muted {
+  color: var(--menu-text-secondary);
+}
+
+[data-menu-theme] .menu-faint {
+  color: var(--menu-text-muted);
+}
+
+[data-menu-theme] .menu-input {
+  background-color: var(--menu-input-bg);
+  border-color: var(--menu-input-border);
+  color: var(--menu-text-primary);
+}
+
+[data-menu-theme] .menu-input::placeholder {
+  color: var(--menu-text-muted);
+}
+
+[data-menu-theme] .menu-accent-soft {
+  background-color: var(--menu-accent-soft);
+  border-color: var(--menu-accent-border);
+}
+
+[data-menu-theme] .menu-sticky-bar {
+  background-color: var(--menu-sticky-bg);
+  border-color: var(--menu-card-border);
+}
+
+/* Accent recoloring per theme (overrides Tailwind utilities;
+   unlayered CSS wins over @layer utilities in Tailwind v4) */
+[data-menu-theme='light'] .bg-orange-500,
+[data-menu-theme='cafe'] .bg-orange-500 {
+  background-color: var(--menu-accent);
+}
+
+[data-menu-theme='light'] .bg-orange-500:hover,
+[data-menu-theme='cafe'] .bg-orange-500:hover,
+[data-menu-theme='light'] .hover\:bg-orange-600:hover,
+[data-menu-theme='cafe'] .hover\:bg-orange-600:hover {
+  background-color: var(--menu-accent-hover);
+}
+
+[data-menu-theme='light'] .bg-orange-600,
+[data-menu-theme='cafe'] .bg-orange-600 {
+  background-color: var(--menu-accent-hover);
+}
+
+[data-menu-theme='light'] .from-orange-500,
+[data-menu-theme='cafe'] .from-orange-500 {
+  --tw-gradient-from: var(--menu-accent);
+}
+
+[data-menu-theme='light'] .to-amber-500,
+[data-menu-theme='cafe'] .to-amber-500 {
+  --tw-gradient-to: var(--menu-accent-hover);
+}
+
+[data-menu-theme='light'] .bg-orange-50,
+[data-menu-theme='cafe'] .bg-orange-50 {
+  background-color: var(--menu-accent-soft);
+}
+
+[data-menu-theme='light'] .bg-orange-100,
+[data-menu-theme='cafe'] .bg-orange-100 {
+  background-color: var(--menu-accent-soft);
+}
+
+[data-menu-theme='light'] .border-orange-100,
+[data-menu-theme='cafe'] .border-orange-100,
+[data-menu-theme='light'] .border-orange-200,
+[data-menu-theme='cafe'] .border-orange-200 {
+  border-color: var(--menu-accent-border);
+}
+
+[data-menu-theme='light'] .text-orange-500,
+[data-menu-theme='cafe'] .text-orange-500,
+[data-menu-theme='light'] .text-orange-600,
+[data-menu-theme='cafe'] .text-orange-600,
+[data-menu-theme='light'] .text-orange-700,
+[data-menu-theme='cafe'] .text-orange-700 {
+  color: var(--menu-accent);
+}
+
+[data-menu-theme='light'] .focus\:border-orange-500:focus,
+[data-menu-theme='cafe'] .focus\:border-orange-500:focus {
+  border-color: var(--menu-accent);
+}
+
+/* Warm text recoloring for the cozy cafe theme */
+[data-menu-theme='cafe'] .text-slate-900,
+[data-menu-theme='cafe'] .text-slate-800 {
+  color: var(--menu-text-primary);
+}
+
+[data-menu-theme='cafe'] .text-slate-700,
+[data-menu-theme='cafe'] .text-slate-600 {
+  color: var(--menu-text-secondary);
+}
+
+[data-menu-theme='cafe'] .text-slate-500,
+[data-menu-theme='cafe'] .text-slate-400 {
+  color: var(--menu-text-muted);
+}
+
+[data-menu-theme='cafe'] .border-slate-100,
+[data-menu-theme='cafe'] .border-slate-200,
+[data-menu-theme='cafe'] .border-slate-200\/70,
+[data-menu-theme='cafe'] .border-slate-200\/80,
+[data-menu-theme='cafe'] .border-slate-200\/90,
+[data-menu-theme='cafe'] .border-slate-100\/80 {
+  border-color: var(--menu-card-border);
+}
+
+[data-menu-theme='cafe'] .bg-slate-50,
+[data-menu-theme='cafe'] .bg-slate-100 {
+  background-color: var(--menu-accent-soft);
+}
+
+[data-menu-theme='cafe'] .bg-slate-50\/70,
+[data-menu-theme='cafe'] .bg-slate-50\/80,
+[data-menu-theme='cafe'] .bg-slate-100\/60 {
+  background-color: var(--menu-accent-soft);
+}
+
+[data-menu-theme='cafe'] .bg-slate-900\/95,
+[data-menu-theme='cafe'] .bg-slate-900\/90 {
+  background-color: rgba(74, 53, 38, 0.95);
+}
+
+[data-menu-theme='cafe'] .bg-slate-900 {
+  background-color: #4a3526;
+}
+
+[data-menu-theme='cafe'] .text-white {
+  color: #fdf6ec;
+}
+
+[data-menu-theme='cafe'] .text-slate-400.text-orange-400,
+[data-menu-theme='cafe'] .text-orange-400 {
+  color: var(--menu-accent);
+}
+
+/* Light theme subtle slate border harmonization */
+[data-menu-theme='light'] .border-slate-100 {
+  border-color: var(--menu-card-border);
+}
+
+/* Responsive helpers for the customer menu */
+.menu-container {
+  width: 100%;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .menu-container {
+    max-width: 48rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .menu-container {
+    max-width: 56rem;
+  }
+}
